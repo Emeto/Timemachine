@@ -23,6 +23,11 @@ class ToolServiceProvider extends ServiceProvider
             $this->routes();
         });
 
+        // Publishes all the package's migrations
+        $this->publishes([
+            __DIR__ . '/../database/migrations/' => database_path('migrations')
+        ], 'nova-timemachine');
+
         Nova::serving(function (ServingNova $event) {
             //
         });
